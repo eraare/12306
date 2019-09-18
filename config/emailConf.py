@@ -13,6 +13,8 @@ def sendEmail(msg):
     :param str: email content
     :return:
     """
+    if not TickerConfig.EMAIL_CONF['IS_MAIL'] or TickerConfig.EMAIL_CONF['email'].strip() == '':
+        return
     try:
         sender = TickerConfig.EMAIL_CONF["email"]
         receiver = TickerConfig.EMAIL_CONF["notice_email_list"]
